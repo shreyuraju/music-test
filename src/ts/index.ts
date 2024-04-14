@@ -1,7 +1,7 @@
 import { notesToPlayInOrder } from "./music-to-play";
 import { MusicalNote, BEATS_PER_MINUTE } from "./musical-score";
 
-const delay = 90000/BEATS_PER_MINUTE;
+const delay = 60000/BEATS_PER_MINUTE;
 
 //function to get audio id
 function getAudioId(note: MusicalNote): HTMLAudioElement {
