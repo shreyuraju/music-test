@@ -1,6 +1,9 @@
 import { notesToPlayInOrder } from "./music-to-play";
 import { MusicalNote, BEATS_PER_MINUTE } from "./musical-score";
 
+//delay
+const delay = 50000/BEATS_PER_MINUTE;
+
 //function to get audio id
 function getAudioId(note: MusicalNote): HTMLAudioElement {
     let id = note.pitch + note.octave.toString();
@@ -26,7 +29,7 @@ function playAudio(note: MusicalNote) {
             audioId.pause()
             audioId.currentTime = 0;
             //use of note.beats to play the duration of audio
-        }, note.beats * (60000 / BEATS_PER_MINUTE));
+        }, note.beats * delay);
     } else {
         console.log(`Audio element not found or ${note}`);
     }
@@ -40,7 +43,7 @@ function playMusic() {
     notes.forEach(note => {
         setTimeout(() => {
             playAudio(note)
-        }, time * (60000 / BEATS_PER_MINUTE));
+        }, time * delay);
         time += note.beats
     });
 }
